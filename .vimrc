@@ -27,6 +27,11 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
+" vim hardtime
+Bundle 'takac/vim-hardtime'
+" On by default
+let g:hardtime_default_on = 1
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
