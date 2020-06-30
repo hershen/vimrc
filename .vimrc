@@ -29,8 +29,31 @@ Plugin 'VundleVim/Vundle.vim'
 
 " vim hardtime
 Bundle 'takac/vim-hardtime'
+
+" highlight C++
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
+"vinegar.vim
+Plugin 'dhruvasagar/vim-vinegar'
+
+"palenight colorscheme
+Plugin 'drewtempelmeyer/palenight.vim'
+
+"airline
+Plugin 'vim-airline/vim-airline'
+
+"deoplete
+if has('nvim')
+  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plugin 'Shougo/deoplete.nvim'
+  Plugin 'roxma/nvim-yarp'
+  Plugin 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 " On by default
-let g:hardtime_default_on = 1
+" let g:hardtime_default_on = 1
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -71,7 +94,7 @@ set modelines=0
 set number
 
 " Show file stats
-set ruler
+"set ruler
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
@@ -144,6 +167,46 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
+
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
 " colorscheme solarized
+
+" Alon's addtions
+
+" Set line numbers (from
+" https://vi.stackexchange.com/questions/3/how-can-i-show-relative-line-numbers)
+set number                     " Show current line number
+set relativenumber             " Show relative line numbers
+
+" Remap esc key. `^ means go to where the cursor was when exiting insert mode.
+" inoremap jk <Esc>`^
+
+"Turn on true colors
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+"palenight colorscheme
+colorscheme palenight
+
+" Italics for my favorite color scheme
+let g:palenight_terminal_italics=1
+
+"color lines that go over 80 columns, where they do
+"highlight ColorColumn ctermbg=red
+"call matchadd('ColorColumn', '\%81v', 100)
+"set colorcolumn=81
+"
+
+"don't make linebreaks
+set textwidth=0 wrapmargin=0
+
+
+"Enable omnicomplete
+"filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+"Enable reading project specific vimrc
+set exrc
+set secure
