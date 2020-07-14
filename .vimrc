@@ -210,3 +210,8 @@ set omnifunc=syntaxcomplete#Complete
 "Enable reading project specific vimrc
 set exrc
 set secure
+
+" Prevent clipboard hijacking
+" (https://www.reddit.com/r/vim/comments/hqt7ij/prevent_clipboard_hijacking/)
+inoremap  <C-r>+  <C-r><C-r>+
+inoremap  <C-r>*  <C-r><C-r>*
