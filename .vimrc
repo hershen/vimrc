@@ -52,6 +52,15 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
+"Commenting plugin
+" Plugin 'preservim/nerdcommenter'
+
+"auto close bracket
+Plugin 'jiangmiao/auto-pairs'
+
+"commentary plugin
+Plugin 'tpope/vim-commentary'
+
 " On by default
 " let g:hardtime_default_on = 1
 
