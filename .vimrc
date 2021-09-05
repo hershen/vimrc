@@ -36,7 +36,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 "vinegar.vim
 Plugin 'dhruvasagar/vim-vinegar'
 
-"palenight colorscheme
+""palenight colorscheme
 Plugin 'drewtempelmeyer/palenight.vim'
 
 "airline
@@ -50,13 +50,22 @@ else
   Plugin 'roxma/nvim-yarp'
   Plugin 'roxma/vim-hug-neovim-rpc'
 endif
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
+
+"vimspector
+Plugin 'puremourning/vimspector'
+let g:vimspector_enable_mappings = 'HUMAN'
+" nmap <leader>ds <Plug>VimspectorStepInto   --- not needed. The F11 keyboard " shortcut is for the Konsole terminal and can be disabled.
+nmap <leader>dcb :call vimspector#ClearBreakpoints()<CR>
+nmap <leader>dT <C-W>2k<C-W>2l
+nmap <leader>dV <C-W>2h<C-W>3k
+nmap <leader>dC <C-W>3h<C-W>2k<C-W>l
 
 "Commenting plugin
 " Plugin 'preservim/nerdcommenter'
 
 "auto close bracket
-Plugin 'jiangmiao/auto-pairs'
+" Plugin 'jiangmiao/auto-pairs'
 
 "commentary plugin
 Plugin 'tpope/vim-commentary'
@@ -94,7 +103,7 @@ syntax on
 filetype plugin indent on
 
 " TODO: Pick a leader key
-" let mapleader = ","
+" let mapleader = "\\"
 
 " Security
 set modelines=0
@@ -224,3 +233,12 @@ set secure
 " (https://www.reddit.com/r/vim/comments/hqt7ij/prevent_clipboard_hijacking/)
 inoremap  <C-r>+  <C-r><C-r>+
 inoremap  <C-r>*  <C-r><C-r>*
+
+" Map Esc to exit terminal mode
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+endif
+
+" Keep search line in middle of screen
+nnoremap n nzz
+nnoremap N Nzz
